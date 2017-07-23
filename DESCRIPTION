@@ -1,0 +1,12 @@
+Package: magiceyer
+Type: Package
+Title: Creat Autostereograms in R
+Version: 0.0.1
+Author: Miao Yu
+Maintainer: Miao Yu <yufreecas@gmail.com>
+Description: Using your own picture to creat autisterograms in R
+License: MIT
+Encoding: UTF-8
+LazyData: true
+LinkingTo: Rcpp
+Imports: Rcpp, imager
