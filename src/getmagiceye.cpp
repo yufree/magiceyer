@@ -35,14 +35,15 @@ NumericMatrix getmagiceye(NumericMatrix x, NumericMatrix y, double shift){
 
 /*** R
 library(imager)
-data(plot)
-d <- dim(px)
-mask <- 1-matrix(as.numeric(px),d[1],d[2])
+data(img)
+d <- dim(img)
+mask <- matrix(as.numeric(img),d[1],d[2])
 i <- as.cimg(mask,dim=c(d[1],d[2],d[3],1))
 plot(i)
 
-c1 <- matrix(runif(900,0,1),30,30)
-o <- getmagiceye(mask, c1, shift = 10)
+c1 <- matrix(runif(128*64,0,1),128,64)
+o <- getmagiceye(mask, c1, shift = 5)
 o <- as.cimg(o,dim=c(d[1],d[2],d[3],1))
 plot(o)
+
 */
