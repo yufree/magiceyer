@@ -4,9 +4,10 @@ Title: Creat Autostereograms in R
 Version: 0.0.1
 Author: Miao Yu
 Maintainer: Miao Yu <yufreecas@gmail.com>
-Description: Using your own picture to creat autisterograms in R
-License: MIT
+Description: Using your own picture to create autosterograms in R. You could aslo generate magic eye with text.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp
-Imports: Rcpp, imager
+Imports: Rcpp, imager, stats
+RoxygenNote: 7.1.0

@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // getmagiceye
 NumericMatrix getmagiceye(NumericMatrix x, NumericMatrix y, double shift);
-RcppExport SEXP magiceyer_getmagiceye(SEXP xSEXP, SEXP ySEXP, SEXP shiftSEXP) {
+RcppExport SEXP _magiceyer_getmagiceye(SEXP xSEXP, SEXP ySEXP, SEXP shiftSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -20,7 +20,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"magiceyer_getmagiceye", (DL_FUNC) &magiceyer_getmagiceye, 3},
+    {"_magiceyer_getmagiceye", (DL_FUNC) &_magiceyer_getmagiceye, 3},
     {NULL, NULL, 0}
 };
 

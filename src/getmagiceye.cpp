@@ -10,40 +10,26 @@ using namespace Rcpp;
 //   http://adv-r.had.co.nz/Rcpp.html
 //   http://gallery.rcpp.org/
 //
-
+//' Generate autosterograms
+//'
+//' @param x depth matrix
+//' @param y pattern matrix
+//' @param shift shift for magic eye
+//' @return matrix of autosterograms
 // [[Rcpp::export]]
-NumericMatrix getmagiceye(NumericMatrix x, NumericMatrix y, double shift){
+NumericMatrix getmagiceye(NumericMatrix x, NumericMatrix y,double shift){
         int nrow = x.nrow(), ncol = x.ncol();
-        int nrowp = y.nrow(), ncolp = y.ncol();
+        int nrowy = y.nrow(), ncoly = y.ncol();
+        NumericMatrix z(nrow,ncol);
         for (int i = 0; i < nrow; i++) {
                 for(int j = 0; j < ncol; j++){
-                        if (j < ncolp) {
-                                x(i,j) = y(i % nrowp,j);
+                        if (j < ncoly) {
+                                z(i,j) = y(i%nrowy,j);
                         }else{
-                                int shift0 = x(i,j) * shift;
-                                x(i,j) = x(i, j - ncolp + shift0);
+                                int shift0 = x(i,j) * ncoly*shift;
+                                z(i,j) = z(i,j-ncoly+shift0);
                         }
                 }
         }
-        return x;
+        return z;
 }
-
-// You can include R code blocks in C++ files processed with sourceCpp
-// (useful for testing and development). The R code will be automatically
-// run after the compilation.
-//
-
-/*** R
-library(imager)
-data(img)
-d <- dim(img)
-mask <- matrix(as.numeric(img),d[1],d[2])
-i <- as.cimg(mask,dim=c(d[1],d[2],d[3],1))
-plot(i)
-
-c1 <- matrix(runif(128*64,0,1),128,64)
-o <- getmagiceye(mask, c1, shift = 5)
-o <- as.cimg(o,dim=c(d[1],d[2],d[3],1))
-plot(o)
-
-*/
