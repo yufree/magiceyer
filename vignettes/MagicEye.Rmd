@@ -1,0 +1,54 @@
+---
+title: "Magic Eye in R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Magic Eye in R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(magiceyer)
+```
+
+You could use this package to generate autostereograms.
+
+## How
+
+- You need an image as the shape hidden in the magic eye
+
+- Convert the image into the depthmap 
+
+- You need to define shift. 0.1-0.2 should be fine.
+
+- Generate the autostereograms
+
+```{r demo}
+image <- getdepthmap("https://cran.r-project.org/Rlogo.jpg")
+plot(image)
+me <- getme(image,len = 10)
+plot(me)
+```
+
+You could also generate text as hidden information in the autostereograms
+
+```{r text}
+met <- getmet(text = "Don't Panic",cex = 15)
+me <- getme(met)
+plot(me)
+```
+
+## Why
+
+- [Wiki](https://en.wikipedia.org/wiki/Magic_Eye)
+
+- [History](https://eyeondesign.aiga.org/the-hidden-history-of-magic-eye-the-optical-illusion-that-briefly-took-over-the-world/)
+
+- [Python](https://flothesof.github.io/making-stereograms-Python.html)

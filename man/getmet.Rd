@@ -4,10 +4,12 @@
 \alias{getmet}
 \title{read in text}
 \usage{
-getmet(text = "yufree")
+getmet(text = "yufree", cex = 20)
 }
 \arguments{
 \item{text}{text}
+
+\item{cex}{default 20}
 }
 \description{
 read in text

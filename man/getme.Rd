@@ -4,10 +4,12 @@
 \alias{getme}
 \title{read in image and change them into magic eye}
 \usage{
-getme(img, shift = 0.15)
+getme(img, len = 50, shift = 0.15)
 }
 \arguments{
 \item{img}{cimg object}
+
+\item{len}{length of pattern square,default 50.}
 
 \item{shift}{shift of magic eye, default 0.15}
 }
